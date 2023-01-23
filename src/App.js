@@ -25,7 +25,7 @@ function App() {
     const ri = Math.floor(Math.random() * quotes.length);
     setCurrentQuote(quotes[ri]);
   }
-  const tweet = `https://twitter.com/intent/tweet?text="${currentQuote.quote}" - ${currentQuote.author}`
+  const tweet = `https://twitter.com/intent/tweet?text="${currentQuote.quote}" - ${currentQuote.author}`;
 
   return (
     <div className="App">
