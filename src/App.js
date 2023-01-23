@@ -1,4 +1,5 @@
 import './App.css';
+import { useState } from 'react';
 
 // hardcoded quotes as stand-in:
 const quotes = [
@@ -18,14 +19,21 @@ const quotes = [
 
 function App() {
   
+  const [currentQuote, setCurrentQuote] = useState(quotes[0]);
+  console.log(currentQuote);
+  function handleClick() {
+    const ri = Math.floor(Math.random() * quotes.length);
+    setCurrentQuote(quotes[ri]);
+  }
+
   return (
     <div className="App">
       <main>
         <h1>Random Quote Machine</h1>
         <section id="quote-box">
-          <p id="text">Random quote</p>
-          <p id="author">- Author</p>
-          <button id="new-quote">New quote</button>
+          <p id="text">{currentQuote.quote}</p>
+          <p id="author">- {currentQuote.author}</p>
+          <button id="new-quote" onClick={handleClick}>New quote</button>
           <p>
             <a href="https://twitter.com/intent/tweet" target="_blank" rel="noreferrer" id="tweet-quote">Tweet quote</a>
           </p>
