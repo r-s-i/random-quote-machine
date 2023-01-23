@@ -1,6 +1,23 @@
 import './App.css';
 
+// hardcoded quotes as stand-in:
+const quotes = [
+  {
+    quote: "Tomorrow belongs to those who can hear it coming",
+    author: "David Bowie"
+  },
+  {
+    quote: "I love the fact that I can make people happy, in any form. Even if it’s just an hour of their lives, if I can make them feel lucky or make them feel good, or bring a smile to a sour face, that to me is worthwhile.",
+    author: "Freddie Mercury"
+  },
+  {
+    quote: "If you fell down yesterday, stand up today.",
+    author: "H.G. Wells"
+  }
+];
+
 function App() {
+  
   return (
     <div className="App">
       <main>
@@ -10,7 +27,7 @@ function App() {
           <p id="author">- Author</p>
           <button id="new-quote">New quote</button>
           <p>
-            <a href="twitter.com/intent/tweet" target="_blank" id="tweet-quote">Tweet quote</a>
+            <a href="https://twitter.com/intent/tweet" target="_blank" rel="noreferrer" id="tweet-quote">Tweet quote</a>
           </p>
         </section>
       </main>
