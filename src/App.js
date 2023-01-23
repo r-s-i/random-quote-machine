@@ -4,20 +4,17 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <main>
+      <h1>Random Quote Machine</h1>
+      <section id="quote-box">
+        <p id="text">Random quote</p>
+        <p id="author">- Author</p>
+        <button id="new-quote">New quote</button>
+        <a href="twitter.com/intent/tweet" target="_blank" id="tweet-quote">Tweet quote</a>
+      </section>
+    </main>
+    
+
     </div>
   );
 }
