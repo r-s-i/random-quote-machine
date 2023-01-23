@@ -25,6 +25,7 @@ function App() {
     const ri = Math.floor(Math.random() * quotes.length);
     setCurrentQuote(quotes[ri]);
   }
+  const tweet = `https://twitter.com/intent/tweet?text="${currentQuote.quote}" - ${currentQuote.author}`
 
   return (
     <div className="App">
@@ -35,7 +36,7 @@ function App() {
           <p id="author">- {currentQuote.author}</p>
           <button id="new-quote" onClick={handleClick}>New quote</button>
           <p>
-            <a href="https://twitter.com/intent/tweet" target="_blank" rel="noreferrer" id="tweet-quote">Tweet quote</a>
+            <a href={tweet} target="_blank" rel="noreferrer" id="tweet-quote">Tweet quote</a>
           </p>
         </section>
       </main>
