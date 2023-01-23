@@ -4,7 +4,7 @@ import { useState } from 'react';
 // hardcoded quotes as stand-in:
 const quotes = [
   {
-    quote: "Tomorrow belongs to those who can hear it coming",
+    quote: "Tomorrow belongs to those who can hear it coming.",
     author: "David Bowie"
   },
   {
@@ -18,7 +18,7 @@ const quotes = [
 ];
 
 function App() {
-  
+
   const [currentQuote, setCurrentQuote] = useState(quotes[0]);
   console.log(currentQuote);
   function handleClick() {
@@ -29,9 +29,9 @@ function App() {
   return (
     <div className="App">
       <main>
-        <h1>Random Quote Machine</h1>
         <section id="quote-box">
-          <p id="text">{currentQuote.quote}</p>
+        <h1>Random Quote Machine</h1>
+          <p id="text">"{currentQuote.quote}"</p>
           <p id="author">- {currentQuote.author}</p>
           <button id="new-quote" onClick={handleClick}>New quote</button>
           <p>
@@ -39,7 +39,6 @@ function App() {
           </p>
         </section>
       </main>
-
     </div>
   );
 }
