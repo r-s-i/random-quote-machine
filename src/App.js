@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import "./App.css"
 import axios from 'axios';
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
         const newQuoteList = response.data.quotes.filter(quote => quote.author !== "Bill Cosby" && quote.author !== "Woody Allen" && quote.author !== "John Lennon")
         setData(response.data);
         setQuote(newQuoteList[Math.floor(Math.random() * response.data.quotes.length) + 1]);
+
     }
     fetchData();
   }, []);
@@ -18,6 +20,7 @@ function App() {
   function handleClick() {
     setQuote(data.quotes[Math.floor(Math.random() * data.quotes.length) + 1]);
   }
+
 
   return (
     <div className="App">
@@ -28,7 +31,7 @@ function App() {
             <p id="author">- {data && JSON.stringify(quote.author)}</p>
             <button id="new-quote" onClick={handleClick}>New quote</button>
             <p>
-              <a href="{/*tweet*/}" target="_blank" rel="noreferrer" id="tweet-quote">Tweet quote</a>
+              <a href={`https://twitter.com/intent/tweet?text=${quote.quote} - ${quote.author}`} target="_blank" rel="noreferrer" id="tweet-quote">Tweet quote</a>
             </p>
           </section>
         </main>
