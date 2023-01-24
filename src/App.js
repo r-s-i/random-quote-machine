@@ -23,7 +23,6 @@ function App() {
     setQuote(quoteListRef.current[num-1]);
   }
 
-
   return (
     <div className="App">
         <main>
@@ -33,7 +32,7 @@ function App() {
             <p id="author">- {data && JSON.stringify(quote.author)}</p>
             <button id="new-quote" onClick={handleClick}>New quote</button>
             <p>
-              <a href={`https://twitter.com/intent/tweet?text=${quote.quote} - ${quote.author}`} target="_blank" rel="noreferrer" id="tweet-quote">Tweet quote</a>
+              <a href={`https://twitter.com/intent/tweet?text="${quote.quote}" - ${quote.author}`} target="_blank" rel="noreferrer" id="tweet-quote">Tweet quote</a>
             </p>
           </section>
         </main>
