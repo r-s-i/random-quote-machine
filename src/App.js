@@ -1,24 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import "./App.css"
 import axios from 'axios';
 
 function App() {
   const [data, setData] = useState(null);
   const [quote, setQuote] = useState({quote: "", author: ""})
-
+  const quoteListRef = useRef([]);
   useEffect(() => {
     async function fetchData() {
         const response = await axios.get('https://gist.githubusercontent.com/nasrulhazim/54b659e43b1035215cd0ba1d4577ee80/raw/e3c6895ce42069f0ee7e991229064f167fe8ccdc/quotes.json');
-        const newQuoteList = response.data.quotes.filter(quote => quote.author !== "Bill Cosby" && quote.author !== "Woody Allen" && quote.author !== "John Lennon")
+        quoteListRef.current = response.data.quotes.filter(quote => quote.author !== "Bill Cosby" && quote.author !== "Woody Allen" && quote.author !== "John Lennon")
         setData(response.data);
-        setQuote(newQuoteList[Math.floor(Math.random() * response.data.quotes.length) + 1]);
+        setQuote(quoteListRef.current[Math.floor(Math.random() * response.data.quotes.length) + 1]);
 
     }
     fetchData();
   }, []);
 
   function handleClick() {
-    setQuote(data.quotes[Math.floor(Math.random() * data.quotes.length) + 1]);
+    let num = Math.floor(Math.random() * quoteListRef.current.length) + 1;
+    setQuote(data.quotes[num]);
   }
 
 
