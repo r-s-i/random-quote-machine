@@ -10,6 +10,7 @@ Run npm start to start the development server and view the project in the browse
 Notes
 
     - Quotes from certain people have been filtered out from the list of quotes
+    - The project is currently set up to use robiniversen.com as the "homepage", as specified in the package.json file.
     - The tweet button uses the a tag with the href attribute set to the twitter share URL and opens in a new tab.
     - JSON.stringify used on Quote and Author
 
