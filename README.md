@@ -1,8 +1,8 @@
-#Random Quote Machine
+# Random Quote Machine
 
 This project uses React and axios to fetch a list of quotes from a JSON file hosted on a Github Gist, and displays a random quote on the screen. The user can also click a button to generate a new random quote. Additionally, there is a feature to tweet the currently displayed quote.
 
-##Usage
+## Usage
 
 Clone the repository and run npm install to install the necessary dependencies.
 
@@ -14,11 +14,11 @@ Notes
     - The tweet button uses the a tag with the href attribute set to the twitter share URL and opens in a new tab.
     - JSON.stringify used on Quote and Author
 
-##Contributing
+## Contributing
 
 This project is open for contributions and bug reports. Please feel free to fork the repository and submit a pull request.
 
 
-##License
+## License
 
 This project is licensed under the MIT License.
