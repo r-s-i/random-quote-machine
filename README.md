@@ -3,7 +3,7 @@
 This project uses React and axios to fetch a list of quotes from a JSON file hosted on a Github Gist, and displays a random quote on the screen. The user can also click a button to generate a new random quote. Additionally, there is a feature to tweet the currently displayed quote.
 
 ## Usage
-<a href="https://robiniversen.com/build-a-random-quote-machine/" target="_blank">It's available on robiniversen.con</a>
+<a href="https://robiniversen.com/build-a-random-quote-machine/">It's available on robiniversen.con</a>
 
 Clone the repository and run npm install to install the necessary dependencies.
 Run npm start to start the development server and view the project in the browser at http://localhost:3000/.
