@@ -7,7 +7,8 @@ This project uses React and axios to fetch a list of quotes from a JSON file hos
 Clone the repository and run npm install to install the necessary dependencies.
 
 Run npm start to start the development server and view the project in the browser at http://localhost:3000/.
-Notes
+
+## Notes
 
     - Quotes from certain people have been filtered out from the list of quotes
     - The project is currently set up to use robiniversen.com as the "homepage", as specified in the package.json file.
