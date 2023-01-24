@@ -7,13 +7,24 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: rgb(175, 177, 255);
+  color: rgb(175, 177, 255);  
 }
 
 #quote-box {
   width: 70%;
   margin: 0 auto;
 }
+
+button {
+  position: absolute;
+  top: 84%;
+  left: 40%;
+  width: 20%;
+  height: 10%;
+  max-height: 40px;
+}
+
+
 
 
 
