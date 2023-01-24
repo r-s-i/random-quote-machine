@@ -1,46 +1,37 @@
-import './App.css';
-import { useState } from 'react';
-
-// hardcoded quotes as stand-in:
-const quotes = [
-  {
-    quote: "Tomorrow belongs to those who can hear it coming.",
-    author: "David Bowie"
-  },
-  {
-    quote: "I love the fact that I can make people happy, in any form. Even if it’s just an hour of their lives, if I can make them feel lucky or make them feel good, or bring a smile to a sour face, that to me is worthwhile.",
-    author: "Freddie Mercury"
-  },
-  {
-    quote: "If you fell down yesterday, stand up today.",
-    author: "H.G. Wells"
-  }
-];
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function App() {
+  const [data, setData] = useState(null);
+  const [quote, setQuote] = useState({quote: "", author: ""})
 
-  const [currentQuote, setCurrentQuote] = useState(quotes[0]);
-  console.log(currentQuote);
+  useEffect(() => {
+    async function fetchData() {
+        const response = await axios.get('https://gist.githubusercontent.com/nasrulhazim/54b659e43b1035215cd0ba1d4577ee80/raw/e3c6895ce42069f0ee7e991229064f167fe8ccdc/quotes.json');
+        setData(response.data);
+        setQuote(response.data.quotes[Math.floor(Math.random() * response.data.quotes.length) + 1]);
+    }
+    fetchData();
+  }, []);
+
   function handleClick() {
-    const ri = Math.floor(Math.random() * quotes.length);
-    setCurrentQuote(quotes[ri]);
+    setQuote(data.quotes[Math.floor(Math.random() * data.quotes.length) + 1]);
   }
-  const tweet = `https://twitter.com/intent/tweet?text="${currentQuote.quote}" - ${currentQuote.author}`;
 
   return (
     <div className="App">
-      <main>
-        <section id="quote-box">
-        <h1>Random Quote Machine</h1>
-          <p id="text">"{currentQuote.quote}"</p>
-          <p id="author">- {currentQuote.author}</p>
-          <button id="new-quote" onClick={handleClick}>New quote</button>
-          <p>
-            <a href={tweet} target="_blank" rel="noreferrer" id="tweet-quote">Tweet quote</a>
-          </p>
-        </section>
-      </main>
-    </div>
+        <main>
+          <section id="quote-box">
+          <h1>Random Quote Machine</h1>
+            <p id="text">{data && JSON.stringify(quote.quote)}</p>
+            <p id="author">- {data && JSON.stringify(quote.author)}</p>
+            <button id="new-quote" onClick={handleClick}>New quote</button>
+            <p>
+              <a href="{/*tweet*/}" target="_blank" rel="noreferrer" id="tweet-quote">Tweet quote</a>
+            </p>
+          </section>
+        </main>
+      </div>
   );
 }
 
