@@ -8,6 +8,7 @@ function App() {
   const quoteListRef = useRef([]);
   useEffect(() => {
     async function fetchData() {
+        // Fetching from gist (https://gist.github.com/nasrulhazim): 
         const response = await axios.get('https://gist.githubusercontent.com/nasrulhazim/54b659e43b1035215cd0ba1d4577ee80/raw/e3c6895ce42069f0ee7e991229064f167fe8ccdc/quotes.json');
         quoteListRef.current = response.data.quotes.filter(quote => quote.author !== "Bill Cosby" && quote.author !== "Woody Allen" && quote.author !== "John Lennon")
         setData(response.data);
@@ -19,7 +20,7 @@ function App() {
 
   function handleClick() {
     let num = Math.floor(Math.random() * quoteListRef.current.length) + 1;
-    setQuote(data.quotes[num]);
+    setQuote(quoteListRef.current[num-1]);
   }
 
 
