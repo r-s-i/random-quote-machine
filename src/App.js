@@ -8,8 +8,9 @@ function App() {
   useEffect(() => {
     async function fetchData() {
         const response = await axios.get('https://gist.githubusercontent.com/nasrulhazim/54b659e43b1035215cd0ba1d4577ee80/raw/e3c6895ce42069f0ee7e991229064f167fe8ccdc/quotes.json');
+        const newQuoteList = response.data.quotes.filter(quote => quote.author !== "Bill Cosby" && quote.author !== "Woody Allen" && quote.author !== "John Lennon")
         setData(response.data);
-        setQuote(response.data.quotes[Math.floor(Math.random() * response.data.quotes.length) + 1]);
+        setQuote(newQuoteList[Math.floor(Math.random() * response.data.quotes.length) + 1]);
     }
     fetchData();
   }, []);
