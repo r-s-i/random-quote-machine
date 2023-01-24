@@ -26,7 +26,7 @@ function App() {
     <div className="App">
         <main>
           <section id="quote-box">
-          <h1>Random Quote Machine</h1>
+            <h1>Random Quote Machine</h1>
             <p id="text">{data && JSON.stringify(quote.quote)}</p>
             <p id="author">- {data && JSON.stringify(quote.author)}</p>
             <button id="new-quote" onClick={handleClick}>New quote</button>
